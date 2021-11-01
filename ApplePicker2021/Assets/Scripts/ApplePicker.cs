@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ApplePicker : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class ApplePicker : MonoBehaviour
     public float basketBottomY = -14f;
     public float basketSpacingY = 2f;
     public List<GameObject> basketList;
+    public GameObject appleTree;
+    public Text currScore;
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +51,8 @@ public class ApplePicker : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        appleTree.GetComponent<AppleTree>().diffLevel = int.Parse(currScore.text) / 1000;
     }
 }
